@@ -1,646 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>A Decade of Crashes</title>
-    <!-- Google Font -->
-    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CS171 - HW 5</title>
 
-    <!-- Font Awesome -->
-
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-     <!-- Preloader -->
-    <link rel="stylesheet" href="css/preloader.css" type="text/css" media="screen, print"/>
-
-    <!-- Icon Font-->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.default.css">
-    <!-- Animate CSS-->
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/d3.slider.css">
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-tour.min.css" rel="stylesheet">
-
-
-
-    <!-- Style -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- Responsive CSS -->
-    <link href="css/responsive.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="js/lte-ie7.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/policyStyle.css">
 </head>
-
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
+
+	<div class="container">
+
+		<h1 class="heading">Policy</h1>
+		<div class="col-md-12">
+
+			<p>
+				While car crashes remain a leading cause of death, roads are getting safer.
+				Over the last half-century, the number of automobile fatalities per vehicle mile
+				traveled in the United States decreased 80 percent, from 5.3 deaths per 100 million
+				vehicle mile traveled in 1965 to 1.07 today.
+			</p>
+			<p>
+				Policy changes have played a large role in reducing the number of fatalities. Until
+				the 1960s, for instance, there were no U.S. seat belt laws. Today, 49 of the 50 states
+				require passengers to wear seat belts. Explore below how average fatalities differ
+				depending on states’ policies.
+			</p>
+		</div>
+
+		<!-- Select box to choose the ranking type -->
+		<div class="col-md-4">
+		<form class="form-inline">
+			<div class="form-group">
+				<select class="form-control" id="policy-ranking-type">
+					<option value="TEXT">Texting laws</option>
+					<option value="HANDHELD">Laws on handheld devices</option>
+					<option value="SEATBELT">Seatbelt laws</option>
+					<option value="DUI">DUI license suspensions</option>
+					<option value="SPEED">Rural speed limit</option>
+					<option value="CONTAINER">Open container laws</option>
+				</select>
+				</div>
+				</form>
+
+			<div class="policy-second-tier">
+				<div class="TEXT">
+
+				</div>
+				<div class="HANDHELD">
+
+				</div>
+				<div class="SEATBELT">
+
+				</div>
+				<div class="DUI">
+
+				</div>
+				<div class="SPEED">
+
+				</div>
+				<div class="CONTAINER">
+
+				</div>
+			</div>
+
+			<div class="policy-second-tier" id="selected-law">
+				<div class="TEXT">
+					<p class = description>
+					The majority of states ban texting while driving, but it's not yet illegal
+					in four states. Research shows that anti-texting laws are associated with a
+						statistically significant drop in traffic fatalities, however this effect
+						is most pronounced in young populations. </p>
+					</p class = description>A <a href="http://journalistsresource.org/studies/environment/transportation/impact-texting-laws-motor-vehicle-fatalities">2014 study</a>
+						by researchers at the University of Alabama at Birmingham found that primary
+						texting laws were associated with a 5 percent drop in fatalities among drivers
+					between the ages of 15 and 21, but there was no statistically significant effect among
+					older drivers.
+						</p>
+					<select class="form-control second-select" id="TEXT">
+						<option value="textBan">States with a ban on texting while driving (46 states + DC)</option>
+						<option value="textOkay">States with no ban on texting while driving (4 states)</option>
+					</select>
+				</div>
+				<div class="HANDHELD">
+					<p class = description>
+					Most states don't ban handheld devices, which means drivers are
+					allowed to talk on the phone while driving.
+						</p>
+					<p class = description>
+						Despite the clear correlation between bans on handheld devices and lower automobile
+						 fatality rates, <a href="http://www.npr.org/templates/story/story.php?storyId=123084040">some studies</a>
+						have disputed the bans' effectiveness, while others reaffirm the importance of banning
+						handheld devices. One
+						<a href="https://www.psych.utah.edu/lab/appliedcognition/publications/profiles.pdf">study by University of Utah</a>
+						researchers found that using a handheld device while driving is just as dangerous and
+						deadly as drinking while driving.
+					</p>
+					<select class="form-control second-select" id="HANDHELD">
+						<option value="handheldBan">States with a ban on handheld devices (13 states + DC)</option>
+						<option value="handheldOkay">States with no ban on handheld devices (36 states)</option>
+					</select>
+				</div>
+				<div class="SEATBELT">
+					<p class = description>
+					Every state with the exception of New Hampshire has some type of seatbelt law.
+					In states with primary seatbelt laws, police can pull drivers over for not wearing
+					their seatbelts. In states with secondary seatbelt laws, police can only issue
+					punishments for drivers not using seatbelts if the driver has been pulled over for
+					some other reason. Research shows that blah blah.
+						</p>
+					<p class = description>
+						A <a href="http://www.nhtsa.gov/About+NHTSA/Traffic+Techs/current/Primary+Enforcement+of+Seat+Belt+Use+Laws+Saves+Lives+and+Reduces+Injuries">1995 study</a>
+						by the National Highway Traffic Safety Administration showed that fatality rates dropped
+						21 percent in five states that began primary enforcement of seatbelt laws.
+					</p>
+					<select class="form-control second-select" id="SEATBELT">
+						<option value="seatbeltAll">States that require seatbelts for all passengers and use primary enforcement</option>
+						<option value="seatbeltFront">States that require seatbelts for front passengers and use primary enforcement</option>
+						<option value="seatbeltSecondary">States that have secondary enforcement seatbelt laws</option>
+						<option value="seatbeltNo">States with no seatbelt laws (only New Hampshire)</option>
+					</select>
+				</div>
+				<div class="DUI">
+					<p class = description>
+					In most states, drivers who get punished for drinking and driving get their license suspended
+					for a time period, but there remain six states in which there is no such punishment. The average
+						number of fatalities per vehicle mile traveled is slightly lower in states with longer
+						license suspension periods for first-time DUI offenders.
+						</p>
+					<select class="form-control second-select" id="DUI">
+						<option value="duiNo">States with no license suspension for first-time DUI offenders</option>
+						<option value="duiUnder100">States that suspend a driver's license for under 100 days</option>
+						<option value="duiOver100">States that suspend a driver's license for 100 or more days</option>
+					</select>
+				</div>
+				<div class="SPEED">
+					<p class = description>
+					Speed limits in rural areas differ by state. Higher rural speed limits are associated with more
+					automobile fatalities.
+					</p>
+					<p class = description>
+						A <a href="http://www.iihs.org/iihs/news/desktopnews/speed-limit-increases-cause-33-000-deaths-in-20-years">recent study</a>
+						 by the Insurance Institute for Highway Safety showed that increases in speed limits over the
+						last 20 years have led to 33,000 additional deaths. In 2013 alone, speed limit increases led to
+						an additional 1,900 Americans losing their lives.
+					</p>
+					<select class="form-control second-select" id="SPEED">
+						<option value="speedUpTo65">States with a rural speed limit up to 65 miles per hour</option>
+						<option value="speed70">States with a rural speed limit of 70 miles per hour</option>
+						<option value="speed75Plus">States with a rural speed limit of 75 miles per hour or higher</option>
+					</select>
+					</div>
+				<div class="CONTAINER">
+					<p class = description>
+					Most states don't permit open containers of alcohol in a car, but nine states still allow the
+					practice. Open container bans are correlated with lower fatality rates in the states that have
+						implemented them.
+						</p>
+					<select class="form-control second-select" id="CONTAINER">
+						<option value="openContainerOkay">States that allow open containers (9 states)</option>
+						<option value="openContainerBan">States that don't allow open containers (41 states plus DC)</option>
+					</select>
+				</div>
+			</div>
+			<div id="mini-map"></div>
+		</div>
+		<div class="col-md-8">
+			<div id="policy-chart"></div>
+		</div>
 
 
-    <header id="HOME" style="background-position: 50% -125px;">
-	        <div class="section_overlay">
-	            <nav class="navbar navbar-default navbar-fixed-top">
-	              <div class="container">
-	                <!-- Brand and toggle get grouped for better mobile display -->
-	                <div class="navbar-header">
-	                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                  </button>
-	                  <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""></a>
-	                </div>
-
-	                <!-- Collect the nav links, forms, and other content for toggling -->
-	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                  <ul class="nav navbar-nav navbar-right">
-	                    <li><a href="#HOME">Home</a></li>
-	                    <li><a href="#ABOUT">Background</a></li>
-	                    <li><a href="#LOCATION">Location</a></li>
-	                    <li><a href="#TIME">Time</a></li>
-	                    <li><a href="#ALCOHOL">Alcohol</a></li>
-	                    <li><a href="#POLICY">Policies</a></li>
-	                  </ul>
-	                </div><!-- /.navbar-collapse -->
-	              </div><!-- /.container -->
-	            </nav> 
-
-	            <div class="container">
-	                <div class="row">
-	                    <div class="col-md-12 text-center">
-	                        <div class="home_text wow fadeInUp animated">
-	                            <h2>A Decade of Crashes</h2>
-	                            <p>Fatal Highway Crashes in the United States, 2004-2014</p>
-	                            <img src="images/shape.png" alt="">                        
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-
-<!-- 	            <div class="container">
-	                <div class="row">
-	                    <div class="col-md-12 text-center">
-	                        <div class="scroll_down">
-                            <a href="#ABOUT"><img src="images/scroll.png" alt=""></a>
-	                            <h4>Scroll Down</h4>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>   -->          
-	        </div>  
-	    </section>         
-    </header>
-
-<section class="about_us_area" id="ABOUT">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="about_title">
-                        <h2>Background</h2>
-                        <img src="images/shape.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container about_text">
-            <div class="row">
-                <div class="col-md-4  wow fadeInLeft animated">
-                    <div class="single_progress_bar">
-                        <h2>Among All Fatal Crashes</h2>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                            <span class="sr-only">100% Complete</span>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="single_progress_bar">
-                        <h2> Alcohol Involved - 31% </h2>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 31%;">
-                            <span class="sr-only">60% Complete</span>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="single_progress_bar">
-                        <h2> On A Highway - 51%</h2>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 51%;">
-                            <span class="sr-only">60% Complete</span>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="single_progress_bar">
-                        <h2> Seatbelt Used - 85%</h2>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
-                            <span class="sr-only">60% Complete</span>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4  wow fadeInRight animated">
-                    <p class="about_us_p">The car crash is a cacophonous demonstration of the unfortunate convergence of time, place, and human imperfection. In 2014, more than 32,000 people died in automobile accidents in the United States -- ranking traffic fatalities among the leading causes of death for Americans.</p>
-                </div>
-                <div class="col-md-4  wow fadeInRight animated">
-                    <p class="about_us_p">With these visualizations, we hope to illuminate trends in the times, locations, and causes of these all-too-frequent tragedies. Our look into the policies that affect the frequency of automobile fatalities provides a lens into what additional policies can be implemented to save lives.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section class="testimonial text-center wow fadeInUp animated" id="TESTIMONIAL">
-        <div class="container">
-            <div class="icon">
-               <!--  <i class="icon-quote"></i> -->
-               <img src="images/info.png" alt="">
-            </div>
-            <div class="owl-carousel">
-                <div class="single_testimonial text-center wow fadeInUp animated">
-                    <p> <b>32,675</b> Americans died in automobile accidents in 2014.</p>
-                </div>
-                <div class="single_testimonial text-center">
-                    <p> <b>28</b> Americans die in alcohol-related automobile accidents daily.</p>
-                </div>
-                <div class="single_testimonial text-center">
-                    <p> <b>1.07</b> Americans die, on average, per 100 million vehicle mile traveled</p>
-                </div>
-            </div>            
-        </div>
-    </section>
-
-    <div class="fun_facts">
-    	<section class="header parallax home-parallax page" id="fun_facts" style="background-position: 50% -150px;">
-	        <div class="section_overlay">
-	            <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <div class="factors_title">
-                                <h2>Factors</h2>
-                                <img src="images/shape.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 text-center">
-                            <div class="single_service wow fadeInUp" data-wow-delay="1s">
-                                <i class="icon-map-pin"></i>
-                                <h2>Location</h2>
-                                <p>No region of the country is spared from traffic fatalities.</p>
-                                <div class="baton">
-                                    <a href="#LOCATION">
-                                    <button type="button" class="btn btn-primary cs-btn">See Visualization</button>
-                                    </a>    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="single_service wow fadeInUp" data-wow-delay="2s">
-                                <i class="icon-clock"></i>
-                                <h2>Time</h2>
-                                <p>The number of traffic fatalities varies by time of day and week.</p>
-                                <div class="baton">
-                                    <a href="#TIME">
-                                    <button type="button" class="btn btn-primary cs-btn">See Visualization</button>
-                                    </a>    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="single_service wow fadeInUp" data-wow-delay="3s">
-                                <i class="icon-wine"></i>
-                                <h2>Alcohol</h2>
-                                <p>States' policies affect the number of vehicle fatalities.</p>
-                                <div class="baton">
-                                    <a href="#ALCOHOL">
-                                    <button type="button" class="btn btn-primary cs-btn">See Visualization</button>
-                                    </a>    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="single_service wow fadeInUp" data-wow-delay="4s">
-                                <i class="icon-streetsign"></i>
-                                <h2>Policies</h2>
-                                <p>The number of alcohol-related crashes differs by state.</p>
-                                <div class="baton">
-                                    <a href="#POLICY">
-                                    <button type="button" class="btn btn-primary cs-btn">See Visualization</button>
-                                    </a>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>       
-	            </div>            
-	        </div>
-	    </section>    
-    </div>
-    <section class="work_area" id="LOCATION">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work_title  wow fadeInUp animated">
-                        <h1>Location</h1>
-                        <img src="images/shape.png" alt="">
-                        <p>United States highways are the pulsing veins of trade and travel that connect our diverse population across state borders. Inevitably, such bustling routes are also the scene of devastating vehicular crashes, often resulting in loss of human life. While no part of the country is immune to such events, there are regional disparities. Explore the map below to see where fatal crashes have occurred in the last five years throughout the United States.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary cs-btn" id="tour">Tour Visualization</button>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row">
-                <div class="col-md-12 text-center" id="checkboxes">
-                    <!-- Filtering options  -->
-                    <b style="margin-right:10px;"> Show me: </b>
-
-                        <label class="checkbox-inline"><input type="checkbox" name="route" value="1" onclick="updateMap(newData)" checked> Interstate Highway</label>
-
-                        <label class="checkbox-inline"><input type="checkbox" name="route" value="2" onclick="updateMap(newData)" > U.S. Highway </label>
-
-                        <label class="checkbox-inline"><input type="checkbox" name="route" value="3" onclick="updateMap(newData)" > State Highway </label>
-
-                        <label class="checkbox-inline"><input type="checkbox" name="route" value="4" onclick="updateMap(newData)" > County Highway </label>
-
-                        <label class="checkbox-inline"><input type="checkbox" name="route" value="5" onclick="updateMap(newData)"> Local Highway </label>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-2">
-                    <div id="showYear">
-                        <div id="currentYear"> </div>
-                        <p id="tNumber"></p>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <div id="play"></div>
-                </div>
-                <div class="col-md-8">
-                    <div id="map-slider"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div id="chart-area"></div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <br>
-                    <h3> Comparing Between States (2014 data) </h3>
-                    <label><input type="checkbox" name="sortBox" onclick="drawBars(stateData)"> Sort values</label>
-                    <form class="form-inline">
-                        <div class="form-group">
-                        <label for="rankingType">View </label>
-                        <select class="form-control" id="bar-type" onchange="drawBars(stateData)">
-                              <option value="deaths">Total Number of Deaths</option>
-                              <option value="deaths100k">Deaths per 100k Population</option>
-                              <option value="deaths100Mmi">Deaths per 100M Miles Traveled</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div id="bar-chart-area"><p id="barTitle" style="text-align: left; color: #C80815"> State </p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section class="work_area" id="TIME">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work_title  wow fadeInUp animated">
-                        <h1>Time</h1>
-                        <img src="images/shape.png" alt="">
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="wow sidetext fadeInUp animated">
-                        <h3> Short Term Trends </h3>
-                        <br>
-                        <p>Drivers, vulnerable to the veil of night and temptations of weekend leisure time, can become variable factors in vehicular accidents. The heatmap to the right shows the number of crashes that have occurred at different times throughout the day.</p>
-                        <br>
-                        <p> Explore the trends and toggle between total number crashes in year 2014, and total number of crashes involving at least one drunk driver. Notice how weekend evenings have the largest numbers of accidents.</p>
-                    </div>
-                </div>
-                <div class="col-md-7 text-center">
-                    <h3> Day of Week vs. Time of Day</h3>
-                    <div id="dataset-picker"></div>
-                    <div id="heatmap"></div>
-                </div>
-            </div>
-			<div class="row">
-                <div class="col-md-7 text-center">
-                    <h3> Total Number of Crashes </h3>
-                    <div id="brushmap"></div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="sidetext wow fadeInUp animated">
-                        <h3> Long Term Trends </h3>
-                        <br>
-                        <p>Changing seasons often inspire holiday memories, visions of renewed foliage, or ideas for revamped color palettes. Interestingly, the number of fatal highway accidents also depends on the time of year. Every year, the number of fatal crashes drops dramatically over the winter months, hitting a low point around February. Then, reliably, fatal crashes surge again and peak around July. Use the brush map to the right to scrutinize the trends in greater detail.</p>
-                    </div>
-                </div>
-                <div class="col-md-1"> </div>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section class="work_area" id="ALCOHOL">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work_title work_title_s wow fadeInUp animated">
-                        <h1>Alcohol</h1>
-                        <img src="images/shape.png" alt="">
-                        <p>In the United States, someone dies from a crash involving an alcohol-impaired driver every 53 minutes. Though often associated with festivity and fruitfulness, alcohol can be a serious threat to the lives of drivers and passengers on the roads. Investigate the charts below to learn how blood alcohol content (BAC) factors into motor vehicle crashes and discover trends across states.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <button type="button" class="btn btn-primary cs-btn" id="clickChangeView">Switch View</button>
-                    <div id="stacked-chart">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work_title summary_text wow fadeInUp animated">
-                        <p>Note that large states such as Texas and California have the greatest number of crash fatalities. Texas, South Carolina, and North Dakota appear to have one of the highest rates of alcohol involvement in crash fatalities in the nation, while Utah appears to have one of the lowest. Keep reading to probe differences in policies that may impact these rates.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section class="work_area" id="POLICY">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work_title work_title_s wow fadeInUp animated">
-                        <h1>Policy</h1>
-                        <img src="images/shape.png" alt="">
-                        <p>While car crashes remain a leading cause of death, roads are getting safer. Over the last half-century, the number of automobile fatalities per vehicle mile traveled in the United States decreased 80 percent. Policy changes have played a large role in reducing the number of fatalities. Until the 1960s, for instance, there were no U.S. seat belt laws. Today, 49 of the 50 states require passengers to wear seat belts. Explore below how average fatalities differ depending on states’ policies.</p>
-                        <p>Select a policy from the options below to see how the average number of deaths in states with that policy differs from the national average. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Select box to choose the ranking type -->
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-5">
-                <form class="form-inline">
-                    <div class="form-group">
-                        Select Policy: 
-                        <select class="form-control" id="policy-ranking-type">
-                            <option value="TEXT">Texting laws</option>
-                            <option value="HANDHELD">Laws on handheld devices</option>
-                            <option value="SEATBELT">Seatbelt laws</option>
-                            <option value="DUI">DUI license suspensions</option>
-                            <option value="SPEED">Rural speed limit</option>
-                            <option value="CONTAINER">Open container laws</option>
-                        </select>
-                        </div>
-                        </form>
-
-                    <div class="policy-second-tier">
-                        <div class="TEXT"></div>
-                        <div class="HANDHELD"></div>
-                        <div class="SEATBELT"></div>
-                        <div class="DUI"></div>
-                        <div class="SPEED"></div>
-                        <div class="CONTAINER"></div>
-                    </div>
-
-                    <br>
-
-                    <div class="policy-second-tier" id="selected-law">
-                        <div class="TEXT">
-                            <p class="policy-text"> The majority of states ban texting while driving, but it's not yet illegal in four states. Research shows that anti-texting laws are associated with a statistically significant drop in traffic fatalities, however this effect is most pronounced in young populations.
-                            </p>
-                            <br>
-                            <p class="policy-text">
-                            A <a href="http://journalistsresource.org/studies/environment/transportation/impact-texting-laws-motor-vehicle-fatalities">2014 study</a>
-                            by researchers at the University of Alabama at Birmingham found that primary texting laws were associated with a 5 percent drop in fatalities among drivers between the ages of 15 and 21, but there was no statistically significant effect among older drivers.
-                            </p>
-
-                            <select class="form-control second-select" id="TEXT">
-                                <option value="textBan">States with a ban on texting while driving (46 states + DC)</option>
-                                <option value="textOkay">States with no ban on texting while driving (4 states)</option>
-                            </select>
-                        </div>
-                        <div class="HANDHELD">
-                            <p class="policy-text">
-                            Most states don't ban handheld devices, which means drivers are
-                            allowed to talk on the phone while driving.
-                            </p>
-                            <p class="policy-text">
-                                Despite the clear correlation between bans on handheld devices and lower automobile
-                                 fatality rates, <a href="http://www.npr.org/templates/story/story.php?storyId=123084040">some studies</a>
-                                have disputed the bans' effectiveness, while others reaffirm the importance of banning
-                                handheld devices. One
-                                <a href="https://www.psych.utah.edu/lab/appliedcognition/publications/profiles.pdf">study by University of Utah</a>
-                                researchers found that using a handheld device while driving is just as dangerous and
-                                deadly as drinking while driving.
-                            </p>
-                            <select class="form-control second-select" id="HANDHELD">
-                                <option value="handheldBan">States with a ban on handheld devices (13 states + DC)</option>
-                                <option value="handheldOkay">States with no ban on handheld devices (36 states)</option>
-                            </select>
-                        </div>
-                        <div class="SEATBELT">
-                            <p class="policy-text">
-                            Every state with the exception of New Hampshire has some type of seatbelt law.
-                            In states with primary seatbelt laws, police can pull drivers over for not wearing
-                            their seatbelts. In states with secondary seatbelt laws, police can only issue
-                            punishments for drivers not using seatbelts if the driver has been pulled over for
-                            some other reason. Research shows that blah blah.
-                                </p>
-                            <p class="policy-text">
-                                A <a href="http://www.nhtsa.gov/About+NHTSA/Traffic+Techs/current/Primary+Enforcement+of+Seat+Belt+Use+Laws+Saves+Lives+and+Reduces+Injuries">1995 study</a>
-                                by the National Highway Traffic Safety Administration showed that fatality rates dropped
-                                21 percent in five states that began primary enforcement of seatbelt laws.
-                            </p>
-                            <select class="form-control second-select" id="SEATBELT">
-                                <option value="seatbeltAll">States that require seatbelts for all passengers and use primary enforcement</option>
-                                <option value="seatbeltFront">States that require seatbelts for front passengers and use primary enforcement</option>
-                                <option value="seatbeltSecondary">States that have secondary enforcement seatbelt laws</option>
-                                <option value="seatbeltNo">States with no seatbelt laws (only New Hampshire)</option>
-                            </select>
-                        </div>
-                        <div class="DUI">
-                            <p class="policy-text">
-                            In most states, drivers who get punished for drinking and driving get their license suspended
-                            for a time period, but there remain six states in which there is no such punishment. The average
-                                number of fatalities per vehicle mile traveled is slightly lower in states with longer
-                                license suspension periods for first-time DUI offenders.
-                                </p>
-                            <select class="form-control second-select" id="DUI">
-                                <option value="duiNo">States with no license suspension for first-time DUI offenders</option>
-                                <option value="duiUnder100">States that suspend a driver's license for under 100 days</option>
-                                <option value="duiOver100">States that suspend a driver's license for 100 or more days</option>
-                            </select>
-                        </div>
-                        <div class="SPEED">
-                            <p class="policy-text">
-                            Speed limits in rural areas differ by state. Higher rural speed limits are associated with more
-                            automobile fatalities.
-                            </p>
-                            <p class="policy-text">
-                                A <a href="http://www.iihs.org/iihs/news/desktopnews/speed-limit-increases-cause-33-000-deaths-in-20-years">recent study</a>
-                                 by the Insurance Institute for Highway Safety showed that increases in speed limits over the
-                                last 20 years have led to 33,000 additional deaths. In 2013 alone, speed limit increases led to
-                                an additional 1,900 Americans losing their lives.
-                            </p>
-                            <select class="form-control second-select" id="SPEED">
-                                <option value="speedUpTo65">States with a rural speed limit up to 65 miles per hour</option>
-                                <option value="speed70">States with a rural speed limit of 70 miles per hour</option>
-                                <option value="speed75Plus">States with a rural speed limit of 75 miles per hour or higher</option>
-                            </select>
-                            </div>
-                        <div class="CONTAINER">
-                            <p class="policy-text">
-                            Most states don't permit open containers of alcohol in a car, but nine states still allow the
-                            practice. Open container bans are correlated with lower fatality rates in the states that have
-                                implemented them.
-                                </p>
-                            <select class="form-control second-select" id="CONTAINER">
-                                <option value="openContainerOkay">States that allow open containers (9 states)</option>
-                                <option value="openContainerBan">States that don't allow open containers (41 states plus DC)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="mini-map"></div>
-                </div>
-                <div class="col-md-6">
-                    <div id="policy-chart"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
-<footer>
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="footer_logo   wow fadeInUp animated">
-                        <img src="images/logo.png" alt="">
-                        <h2> Data Gators </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-            	<div class="col-md-3 text-center">
-            	<p style="color: #4876af;"> Risham Dhillon </p>
-				<p>	Harvard College 2018</p>
-				<p> Computer Science </p>
-				<p>	rishamdhillon@college.harvard.edu </p>
-            	</div>
-            	<div class="col-md-3 text-center">
-            	<p style="color: #4876af;"> Jocelyn Fu </p>
-				<p>	Harvard College 2017</p>
-				<p> Applied Mathematics </p>
-				<p>	zfu@college.harvard.edu </p>
-            	</div>
-            	<div class="col-md-3 text-center">
-            	<p style="color: #4876af;"> Lauren Leatherby </p>
-				<p>	Harvard Kennedy School 2016 </p>
-				<p> Master of Public Policy </p>
-				<p>	lauren_leatherby@hks.harvard.edu </p>
-            	</div>
-            	<div class="col-md-3 text-center">
-            	<p style="color: #4876af;"> Jamie Lee Solimano </p>
-				<p>	Harvard College 2017</p>
-				<p> Molecular and Cellular Biology </p>
-				<p>	jsolimano@college.harvard.edu </p>
-            	</div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="copyright_text   wow fadeInUp animated">
-                        <p>&copy; brandy 2015.All Right Reserved By <a href="http://www.themeforest.net/user/thecodecafe"target="_blank">Code Cafe Team</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+	</div>
 
 
+	<!-- Load JS libraries: jQuery, bootstrap, D3, D3 tooltip -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/d3.tip.js"></script>
+	<script src="js/queue.v1.min.js"></script>
+	<script src="js/topojson.v1.min.js"></script>
 
-
-
-
-
-
-
-
-
-<!-- =========================
-     SCRIPTS 
-============================== -->
-
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-tour.min.js"></script>
-    <script src="js/jquery.nicescroll.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/d3.min.js"></script>
-    <script src="js/d3.tip.js"></script>
-    <script src="js/d3.slider.js"></script>
-    <script src="js/topojson.v1.min.js"></script>
-    <script src="js/queue.v1.min.js"></script>
-
-    <!-- Visualization inplementations -->
-    <script src="js/map.js"></script>
-    <script src="js/policyMain.js"></script>
-    <script src="js/stacked.js"></script>
-    <script src="js/heatmap.js"></script>
-    <script src="js/brushmap.js"></script>
-    <script src="js/main.js"></script>
-
-
-
+	<!-- Your implementation -->
+	<script src="js/policyMain.js"></script>
 </body>
-
 </html>
