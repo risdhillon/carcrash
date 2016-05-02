@@ -1,8 +1,8 @@
 var dmargin = {top: 10, right: 10, bottom: 100, left: 40},
-    dmargin2 = {top: 430, right: 10, bottom: 20, left: 40},
-    dwidth = 960 - dmargin.left - dmargin.right,
-    dheight = 500 - dmargin.top - dmargin.bottom,
-    dheight2 = 500 - dmargin2.top - dmargin2.bottom;
+    dmargin2 = {top: 230, right: 10, bottom: 20, left: 40},
+    dwidth = 600 - dmargin.left - dmargin.right,
+    dheight = 300 - dmargin.top - dmargin.bottom,
+    dheight2 = 300 - dmargin2.top - dmargin2.bottom;
 
 var parseDate = d3.time.format("%b %Y").parse;
 
@@ -11,8 +11,8 @@ var x = d3.time.scale().range([0, dwidth]),
     y = d3.scale.linear().range([dheight, 0]),
     y2 = d3.scale.linear().range([dheight2, 0]);
 
-var xAxis = d3.svg.axis().scale(x).orient("bottom"),
-    xAxis2 = d3.svg.axis().scale(x2).orient("bottom"),
+var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(10),
+    xAxis2 = d3.svg.axis().scale(x2).orient("bottom").ticks(5).tickFormat(d3.time.format("%Y")),
     yAxis = d3.svg.axis().scale(y).orient("left");
 
 var brush = d3.svg.brush()

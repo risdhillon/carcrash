@@ -5,7 +5,7 @@ var tour = new Tour({
     element: "#chart-area",
     title: "Map",
     placement: "top",
-    content: "Each point represents a crash in that location that year. Hover on the circle to see the date and number of people killed in the crash."
+    content: "Each point represents a crash at the location in the selected year. The size of the circle represents the number of people killed in the crash. Hover on the circle to see the date and number of people killed in the crash."
   },
   {
     element: "#checkboxes",

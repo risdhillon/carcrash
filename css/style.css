@@ -472,6 +472,10 @@ text.axis-worktime {
 fill: #000;
 }
 
+.sidetext p{
+	text-align: justify;
+}
+
 #brushmap svg {
   font: 10px sans-serif;
 }

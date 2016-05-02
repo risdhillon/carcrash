@@ -1,7 +1,7 @@
 
 var bmargin = { top: 50, right: 0, bottom: 100, left: 30 },
-    bwidth = 960 - bmargin.left - bmargin.right,
-    bheight = 430 - bmargin.top - bmargin.bottom,
+    bwidth = 550 - bmargin.left - bmargin.right,
+    bheight = 350 - bmargin.top - bmargin.bottom,
     gridSize = Math.floor(bwidth / 24),
     legendElementWidth = gridSize*2,
     buckets = 12,
@@ -55,6 +55,14 @@ var heatmapChart = function(tsvFile) {
 
     cards.append("title");
 
+    var cardtip = d3.tip()
+                  .attr('class', 'd3-tip')
+                  .style("visibility","visible")
+                  .offset([-20, 0])
+                  .html(function(d,i) {
+                    return "Value:  <span style='color:red'>" + "" + d.value[i] + "";
+                  });
+
     cards.enter().append("rect")
         .attr("x", function(d) { return (d.hour - 1) * gridSize; })
         .attr("y", function(d) { return (d.day - 1) * gridSize; })
@@ -70,6 +78,8 @@ var heatmapChart = function(tsvFile) {
 
     cards.select("title").text(function(d) { return d.value; });
     
+    cardtip(bsvg.append("g"));
+
     cards.exit().remove();
 
     var blegend = bsvg.selectAll(".legend")
@@ -106,8 +116,6 @@ var datasetpicker = d3.select("#dataset-picker").selectAll(".dataset-button")
 datasetpicker.enter()
   .append("input")
   .attr("value", function(d){return d.substring(5,18)})
-  //{if (d = "datasets[0]") {return y2[0]} else {return y2[1]}})
-  //.attr("value", function(d){ return "Data Set: " + d })
   .attr("type", "button")
   .attr("class", "dataset-button")
   .on("click", function(d) {

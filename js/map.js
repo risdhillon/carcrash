@@ -2,11 +2,10 @@ Dateformat = d3.time.format("%Y-%m-%d");
 axisformat = d3.time.format("%b")
 sliderformat = d3.time.format("%b %y")
 
-var checked;
-
 // SVG drawing area
 
-var margin = {top: 30, right: 40, bottom: 60, left: 60};
+// MAP SVG
+var margin = {top: 60, right: 60, bottom: 60, left: 40};
 
 var width = 750 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -50,9 +49,12 @@ svg.append("rect")
 svg.call(zooming)
     .call(zooming.event);
 
+// Map Legend
 createLegend();
 
-// Bar Chart svg
+
+
+// Bar Chart SVG
 var barmargin = {top: 10, right: 10, bottom: 30, left: 32};
 
 var barwidth = 400 - barmargin.left - barmargin.right,
@@ -76,14 +78,17 @@ barsvg.append("g").attr("class", "axis x-axis").attr("transform", "translate(0,"
 
 barsvg.append("g").attr("class","axis y-axis")
 
+var checked;
+
+
 // Load data parallel
 queue()
     .defer(d3.json, "data/us-states.json")
     .defer(d3.csv, "data/final.csv")
     .defer(d3.csv, "data/mapStateInfo.csv")
-    .await(loadData)
+    .await(loadMapData)
 
-function loadData(error, data1, data2, data3) {
+function loadMapData(error, data1, data2, data3) {
 
     // Convert TopoJSON to GeoJSON (target object = 'countries')
     usa = topojson.feature(data1, data1.objects.states).features
@@ -102,12 +107,14 @@ function loadData(error, data1, data2, data3) {
             d3.select("#bar-chart-area")
                 .selectAll(".bar")
                 .style("fill", function(b){
-                    if (b.id == d.id)
-                        return "#C80815";
+                    if (b.id == d.id){
+                        document.getElementById("barTitle").innerHTML = b.fullName;
+                        return "#C80815";}
                     else return "#86CEFA";
                 });
         })
         .on("mouseout", function(d, i){
+            document.getElementById("barTitle").innerHTML = "State";
             d3.selectAll("path")
                 .style({"fill-opacity": 1});
             d3.select("#bar-chart-area")
@@ -140,6 +147,7 @@ function loadData(error, data1, data2, data3) {
       return (d.YEAR==2010);
     })
 
+    // Create Time Slider
     createSlider();
 
     d3.select("#play")
@@ -156,6 +164,7 @@ function loadData(error, data1, data2, data3) {
         }
       });
 
+    // Bar Data parse
     stateData.forEach(function(d){
         d.id = +d.id;
         d.deaths = +d.deaths;
@@ -170,7 +179,8 @@ function loadData(error, data1, data2, data3) {
 
     // Draw the visualization for the first time
     updateMap(newData);
-    alphabetSorted = stateData;
+
+    // Draw the bars for the first time
     drawBars(stateData);
 };
 
@@ -255,8 +265,9 @@ function updateMap(crashData) {
 
 };
 
+// Legend for SVG Map
 function createLegend(){
-  var legend = zoom.append("g").attr("id","legend").attr("transform","translate(480,0)");
+  var legend = zoom.append("g").attr("id","legend").attr("transform","translate(480,-20)");
 
   legend.append("circle").attr("fill","#c80815").attr("r",5).attr("cx",-5).attr("cy",10)
   legend.append("circle").attr("fill","#4876af").attr("r",5).attr("cx",-5).attr("cy",30)
@@ -266,33 +277,14 @@ function createLegend(){
   legend.append("text").text("U.S. Highway Crashes").attr("x",5).attr("y",33);
   legend.append("text").text("Other Highway Crashes").attr("x",5).attr("y",53);
 
-  legend.append("circle").attr("fill","#f0f0f0").attr("r",1.5).attr("cx",150).attr("cy",350);
+  legend.append("circle").attr("fill","#C80815").attr("r",1.5).attr("cx",150).attr("cy",350);
   legend.append("text").text("1 killed").attr("x",160).attr("y",353);
 
-  legend.append("circle").attr("fill","#f0f0f0").attr("r",(5*1.5)).attr("cx",147).attr("cy",327);
+  legend.append("circle").attr("fill","#C80815").attr("r",(5*1.5)).attr("cx",147).attr("cy",327);
   legend.append("text").text("5 killed").attr("x",160).attr("y",330);
 
-  legend.append("circle").attr("fill","#f0f0f0").attr("r",15).attr("cx",140).attr("cy",300);
+  legend.append("circle").attr("fill","#C80815").attr("r",15).attr("cx",140).attr("cy",300);
   legend.append("text").text("10 killed").attr("x",160).attr("y",303);
-
-// function circleSize(d){
-//   return Math.sqrt( .02 * Math.abs(d) );
-// };
-
-//   var sizes = [ 10000, 100000, 250000 ];
-//   for ( var i in sizes ){
-//     legend.append("circle")
-//       .attr( "r", circleSize( sizes[i] ) )
-//       .attr( "cx", 80 + circleSize( sizes[sizes.length-1] ) )
-//       .attr( "cy", 2 * circleSize( sizes[sizes.length-1] ) - circleSize( sizes[i] ) )
-//       .attr("vector-effect","non-scaling-stroke");
-//     legend.append("text")
-//       .text( (sizes[i] / 1000) + "K" + (i == sizes.length-1 ? " jobs" : "") )
-//       .attr( "text-anchor", "middle" )
-//       .attr( "x", 80 + circleSize( sizes[sizes.length-1] ) )
-//       .attr( "y", 2 * ( circleSize( sizes[sizes.length-1] ) - circleSize( sizes[i] ) ) + 5 )
-//       .attr( "dy", 13)
-//   }
 }
 
 // Slider Autoplay option
@@ -323,6 +315,7 @@ function animate(){
 }
 
 
+// Slider Function
 function createSlider() {
 
     // Slider function (d3.slider.js)
@@ -342,7 +335,7 @@ function createSlider() {
 }
 
 
-
+// Click zoom function for map
 function clicked(d, currentState) {
 
   if (d3.event.defaultPrevented) return;
@@ -376,6 +369,7 @@ function clicked(d, currentState) {
 
 }
 
+// Pan & zoom function for map (panning, draggin, & zooming)
 function zoomed() {
     projection
       .translate(zooming.translate())
@@ -397,11 +391,14 @@ function zoomed() {
 
 }
 
+// Draw barchart
 function drawBars(data){
+
+    // Check for dropdown box selection
     var selection = d3.select("#bar-type").property("value");
 
+    // Check if the sorted box is checked
     var check = document.getElementsByName('sortBox');
-    
     checked = check[0]["checked"];
 
     if (checked == true){
@@ -434,6 +431,7 @@ function drawBars(data){
     statebars
         .on("mouseover", function(d, i){
             d3.select(this).style("fill","#C80815");
+            document.getElementById("barTitle").innerHTML = d.fullName;
             d3.select("#chart-area")
                 .selectAll("path")
                 .style("fill", function(b){
@@ -442,6 +440,7 @@ function drawBars(data){
                 });
         })
         .on("mouseout", function(d, i){
+            document.getElementById("barTitle").innerHTML = "State";
             d3.select("#chart-area").selectAll("path").style("fill","#E8E8E8")
             d3.select("#bar-chart-area").selectAll(".bar").style("fill", "#86CEFA");
         });

@@ -47,10 +47,10 @@
 </head>
 
 <body>
-                <!-- Preloader -->
-                <div id="preloader">
-                    <div id="status">&nbsp;</div>
-                </div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
 
 
     <header id="HOME" style="background-position: 50% -125px;">
@@ -322,7 +322,7 @@
                             </select>
                         </div>
                     </form>
-                    <div id="bar-chart-area"></div>
+                    <div id="bar-chart-area"><p id="barTitle" style="text-align: left; color: #C80815"> State </p></div>
                 </div>
             </div>
         </div>
@@ -334,32 +334,41 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <div class="work_title work_title_s wow fadeInUp animated">
+                    <div class="work_title  wow fadeInUp animated">
                         <h1>Time</h1>
                         <img src="images/shape.png" alt="">
-                        <p>Drivers, vulnerable to the veil of night and temptations of weekend leisure time, can become variable factors in vehicular accidents. The heatmap below shows the number of crashes that have occurred at different times throughout the day. Explore the trends and toggle between total crashes, and crashes involving at least one drunk driver.</p>
-                    </div>
-                </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2> Day of Week vs. Time of Day </h2>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="wow sidetext fadeInUp animated">
+                        <h3> Short Term Trends </h3>
+                        <br>
+                        <p>Drivers, vulnerable to the veil of night and temptations of weekend leisure time, can become variable factors in vehicular accidents. The heatmap to the right shows the number of crashes that have occurred at different times throughout the day.</p>
+                        <br>
+                        <p> Explore the trends and toggle between total number crashes in year 2014, and total number of crashes involving at least one drunk driver. Notice how weekend evenings have the largest numbers of accidents.</p>
+                    </div>
+                </div>
+                <div class="col-md-7 text-center">
+                    <h3> Day of Week vs. Time of Day</h3>
                     <div id="dataset-picker"></div>
                     <div id="heatmap"></div>
                 </div>
             </div>
 			<div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work_title summary_text wow fadeInUp animated">
-                        <p>Changing seasons often inspire holiday memories, visions of renewed foliage, or ideas for revamped color palettes. Interestingly, the number of fatal highway accidents also depends on the time of year. Every year, the number of fatal crashes drops dramatically over the winter months, hitting a low point around February. Then, reliably, fatal crashes surge again and peak around July. Use the brush map below to scrutinize the trends in greater detail.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2> Long Term Trend - Total Crashes</h2>
+                <div class="col-md-7 text-center">
+                    <h3> Total Number of Crashes </h3>
                     <div id="brushmap"></div>
                 </div>
+                <div class="col-md-4 text-center">
+                    <div class="sidetext wow fadeInUp animated">
+                        <h3> Long Term Trends </h3>
+                        <br>
+                        <p>Changing seasons often inspire holiday memories, visions of renewed foliage, or ideas for revamped color palettes. Interestingly, the number of fatal highway accidents also depends on the time of year. Every year, the number of fatal crashes drops dramatically over the winter months, hitting a low point around February. Then, reliably, fatal crashes surge again and peak around July. Use the brush map to the right to scrutinize the trends in greater detail.</p>
+                    </div>
+                </div>
+                <div class="col-md-1"> </div>
             </div>
         </div>
     </section>
@@ -404,6 +413,7 @@
                         <h1>Policy</h1>
                         <img src="images/shape.png" alt="">
                         <p>While car crashes remain a leading cause of death, roads are getting safer. Over the last half-century, the number of automobile fatalities per vehicle mile traveled in the United States decreased 80 percent. Policy changes have played a large role in reducing the number of fatalities. Until the 1960s, for instance, there were no U.S. seat belt laws. Today, 49 of the 50 states require passengers to wear seat belts. Explore below how average fatalities differ depending on states’ policies.</p>
+                        <p>Select a policy from the options below to see how the average number of deaths in states with that policy differs from the national average. </p>
                     </div>
                 </div>
             </div>
@@ -412,8 +422,6 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-5">
-                <p>Select a policy from the options below to see how the average number of deaths in states with that policy differs from the national average. </p>
-                <br>
                 <form class="form-inline">
                     <div class="form-group">
                         Select Policy: 
@@ -535,8 +543,8 @@
                             </select>
                         </div>
                     </div>
+                    <div id="mini-map"></div>
                 </div>
-
                 <div class="col-md-6">
                     <div id="policy-chart"></div>
                 </div>

@@ -1,8 +1,8 @@
   var legend_awidth = 120;
 
   var amargin = {top: 20, right: 20, bottom: 30, left: 60},
-          awidth = 860 - amargin.left - amargin.right+legend_awidth,
-          aheight = 500 - amargin.top - amargin.bottom;
+          awidth = 750 - amargin.left - amargin.right+legend_awidth,
+          aheight = 450 - amargin.top - amargin.bottom;
 
   var x3 = d3.scale.ordinal()
           .rangeRoundBands([0, awidth], .1);
@@ -86,6 +86,12 @@
             .attr("class", "x axis")
             .attr("transform", "translate(0," + aheight + ")")
             .call(axAxis);
+
+    asvg.select(".x").selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx","-0.5em")
+        .attr("dy","-0.3em")
+        .attr("transform","rotate(-90)");
 
 
 //Define the rect of Relative
@@ -218,11 +224,12 @@
 
 
 // adding legend
+
     var legend = asvg.selectAll(".legend")
             .data(color.domain().slice().reverse())
             .enter().append("g")
             .attr("class", "legend")
-            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+            .attr("transform", function(d, i) { return "translate(0," + (8 + i * 20) + ")"; });
 
     legend.append("rect")
             .attr("x", awidth - 18+legend_awidth)
@@ -236,6 +243,11 @@
             .attr("dy", ".35em")
             .style("text-anchor", "end")
             .text(function(d) { return d; });
+
+    asvg.append("text")
+          .text("BAC Level")
+          .attr("x", awidth - 50 +legend_awidth)
+          .attr("y", 0)
 
 
 
